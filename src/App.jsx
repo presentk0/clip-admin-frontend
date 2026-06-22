@@ -6,7 +6,9 @@ import DashboardPage from './pages/DashboardPage';
 import AiUsagePage from './pages/AiUsagePage';
 import ChatPatternPage from './pages/ChatPatternPage';
 import UserVideoWordPage from './pages/UserVideoWordPage';
-import { logoutAdmin } from './api/stats';  // 상단에 import 추가
+import { logoutAdmin } from './api/stats'; 
+import UserSessionPage from './pages/UserSessionPage';
+import VideoCurationPage from './pages/VideoCurationPage';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -60,6 +62,8 @@ const handleLogout = async () => {
           <Route path="ai-usage" element={<AiUsagePage />} />
           <Route path="chat-pattern" element={<ChatPatternPage />} />
           <Route path="user-video-word" element={<UserVideoWordPage />} />
+          <Route path="user-session" element={<UserSessionPage />} />
+          <Route path="video-curation" element={<VideoCurationPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
