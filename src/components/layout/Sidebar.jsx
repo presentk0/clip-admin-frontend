@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import frogImage from '../../assets/icons/frog.png';
 
 function Sidebar({ onLogout }) {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -10,6 +11,8 @@ function Sidebar({ onLogout }) {
     { path: '/ai-usage', label: 'AI 호출 통계', icon: '🤖' },
     { path: '/chat-pattern', label: '채팅 세션 통계', icon: '💬' },
     { path: '/user-video-word', label: '단어 수집 분석', icon: '📚' },
+    { path: '/user-session', label: '사용자 활동 분석', icon: '👥' },
+    { path: '/video-curation', label: '영상 큐레이션', icon: '🎬' }, 
   ];
 
   // ===== 색상 팔레트 =====
@@ -47,6 +50,16 @@ function Sidebar({ onLogout }) {
     alignItems: 'center',
     gap: '12px',
     letterSpacing: '-0.3px',
+  };
+
+  
+  const logoImgStyle = {
+    width: '32px',
+    height: '32px',
+    objectFit: 'contain',
+    borderRadius: '8px',
+    backgroundColor: '#FFFFFF',
+    padding: '2px',
   };
 
   const navStyle = {
@@ -122,9 +135,14 @@ function Sidebar({ onLogout }) {
   return (
     <aside style={sidebarStyle}>
       {/* 로고 */}
+      {/* 🆕 로고 (이미지로 변경) */}
       <div style={logoStyle}>
-        <span style={{ fontSize: '24px' }}>🎬</span>
-        <span>CLIP Admin</span>
+        <img 
+          src={frogImage} 
+          alt="CLIPZY Logo"
+          style={logoImgStyle}
+        />
+        <span>CLIPZY Admin</span>
       </div>
 
       {/* 메뉴 */}

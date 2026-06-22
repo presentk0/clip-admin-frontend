@@ -52,3 +52,31 @@ export const logoutAdmin = async () => {
   const response = await api.post('/api/admin/auth/logout');
   return response.data;
 };
+
+/**
+ * 6. 사용자 세션 통계 🆕
+ */
+export const getUserSessionStats = async (startDate, endDate) => {
+  const params = {};
+  if (startDate) params.startDate = startDate;
+  if (endDate) params.endDate = endDate;
+  
+  const response = await api.get('/api/admin/stats/user-sessions', { params });
+  return response.data;
+};
+
+/**
+ * 7. 영상 큐레이션 🆕
+ */
+
+// 7-1. 단일 영상 등록
+export const registerCuratedVideo = async (videoData) => {
+  const response = await api.post('/api/admin/videos', videoData);
+  return response.data;
+};
+
+// 7-2. 일괄 영상 등록
+export const registerBatchVideos = async (videoList) => {
+  const response = await api.post('/api/admin/videos/batch', videoList);
+  return response.data;
+};
